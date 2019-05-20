@@ -46,7 +46,10 @@ module Dynamoid
       super || self.class.attributes.key?(attr.to_sym)
     end
 
-    if ActiveModel::VERSION::STRING >= '5.2.0'
+    version_string = ActiveModel::VERSION::STRING
+    if version_string >= '6.0.0'
+      ActiveModel::ForcedMutationTracker.new(self)
+    elsif version_string >= '5.2.0'
       # The ActiveModel::Dirty API was changed
       # https://github.com/rails/rails/commit/c3675f50d2e59b7fc173d7b332860c4b1a24a726#diff-aaddd42c7feb0834b1b5c66af69814d3
       # So we just try to disable new functionality
