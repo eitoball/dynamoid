@@ -18,7 +18,7 @@ matrix:
   exclude:
     - rvm: ruby-2.3.8
       gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: ruby-2.4.5
+    - rvm: ruby-2.4.6
       gemfile: gemfiles/rails_6_0.gemfile
 
 
